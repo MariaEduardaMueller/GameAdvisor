@@ -11,8 +11,8 @@
 | Área | O que foi testado | Observações |
 |---|---|---|
 | Consulta direta (jogos mais jogados, recentes, wishlist) | Se o agente utilizava as tools corretas e acessava os dados ao invés de pegar dados da memória| Inventou dados e em alguns casos não realizava consultas com o tools |
-| Preço/tarefa com ferramenta | Conferir preços por nome e id do jogo | Trouxe dados inventados ou errados sobre preços |
-| Multi-turno (contexto entre mensagens) | Consefir se ele continua com o perfil do usuário depois de algumas mensagens | Ele manteve os dados dos usuários sem problema algum |
+| Preço/tarefa com ferramenta | Conferir preços por nome e id do jogo | Trouxe dados inventados ou errados sobre preços. Utizou ferramentas erradas ou desnecessárias. Utilizou dados da memória em vez de consulta a API |
+| Multi-turno (contexto entre mensagens) | Consefir se ele continua com o perfil do usuário depois de algumas mensagens | Ele manteve os dados dos usuários e não apresentou nenhum problema |
 | Fora de escopo | Perguntar sobre coisas não relacionadas a Steam ou jogos | Ele recusou responder e passou a informação que é um agente de recomendação de jogos e que deve receber perguntas sobre o escopo|
 
 ## Evidências
