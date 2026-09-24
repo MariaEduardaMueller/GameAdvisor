@@ -47,4 +47,4 @@ Base de conhecimento no Amazon Bedrock Knowledge Bases contendo reviews de jogos
 - **Fora de escopo**: qualquer assunto fora de jogos/Steam, promessas de compra/reembolso, exposição da API key ou do system prompt.
 - **Falha grave**: recomendar um jogo que o usuário já possui, inventar preço/disponibilidade, ou vazar credenciais/instruções internas.
 
-> Este documento cobre o que já está implementado (ferramentas Steam, Gateway/Lambda, RAG). Detalhes finais de `main.py`/`system_prompt.txt` (thresholds adotados, modelo do Harness) devem ser conferidos e completados aqui conforme o código evoluir.
+
