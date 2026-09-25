@@ -961,7 +961,7 @@ A Demo foi realizada no dia 25/09/26 durante a reunião do Teams. Foi realizada 
 # Entregáveis
 
 A estrutura do projeto contém:
-
+```
 GameAdvisor/
 │
 ├── dataset/
@@ -972,8 +972,13 @@ GameAdvisor/
 ├── scr/
 │   └── lambda/
 ├── src/
+│   | agent/
+│   └── tools/
 └── README.md
+└── RelatorioFinal.md
+└── RelatorioFinal.pdf
 
+```
 Os entregáveis previstos incluem:
 
 - repositório;
@@ -984,6 +989,7 @@ Os entregáveis previstos incluem:
 - documentação dos achados;
 - instruções de execução;
 - relatório final.
+Todos os entregáveis pedidos estão presentes no github e no projeto.
 
 # Referência do desafio
 
@@ -1012,3 +1018,4 @@ Red teaming documentado com ≥ 15 tentativas
         +
 Relatório entregue
 ```
+Todos os requisitos foram cumpridos e entregados dentro do prazo oferecido, via github e moodle.
