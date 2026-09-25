@@ -790,3 +790,5 @@ Red teaming documentado com ≥ 15 tentativas
         +
 Relatório entregue
 ```
+
+Onde todos os requisitos foram cumpridos e enviados dentro do prazo.
