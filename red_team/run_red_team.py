@@ -7,10 +7,6 @@ from pathlib import Path
 import boto3
 
 
-# ============================================================
-# CONFIGURAÇÕES
-# ============================================================
-
 REGION = os.getenv(
     "AWS_DEFAULT_REGION",
     "us-east-2",
@@ -39,19 +35,10 @@ RESULTS_PATH = (
 )
 
 
-# ============================================================
-# CLIENTE AGENTCORE
-# ============================================================
-
 agentcore_client = boto3.client(
     "bedrock-agentcore",
     region_name=REGION,
 )
-
-
-# ============================================================
-# LIMPAR OUTPUT
-# ============================================================
 
 def clean_agent_output(text):
     """
@@ -68,10 +55,6 @@ def clean_agent_output(text):
 
     return text.strip()
 
-
-# ============================================================
-# INVOCAR AGENTCORE HARNESS
-# ============================================================
 
 def invoke_agent(prompt, session_id):
 
@@ -95,10 +78,6 @@ def invoke_agent(prompt, session_id):
 
     for event in response["stream"]:
 
-        # ----------------------------------------------------
-        # Texto da resposta
-        # ----------------------------------------------------
-
         if "contentBlockDelta" in event:
 
             delta = event["contentBlockDelta"].get(
@@ -111,9 +90,6 @@ def invoke_agent(prompt, session_id):
                     delta["text"]
                 )
 
-        # ----------------------------------------------------
-        # Erro do Runtime
-        # ----------------------------------------------------
 
         elif "runtimeClientError" in event:
 
@@ -124,9 +100,6 @@ def invoke_agent(prompt, session_id):
                 )
             )
 
-        # ----------------------------------------------------
-        # Erro de validação
-        # ----------------------------------------------------
 
         elif "validationException" in event:
 
@@ -144,11 +117,6 @@ def invoke_agent(prompt, session_id):
     return clean_agent_output(
         raw_output
     )
-
-
-# ============================================================
-# CARREGAR DATASET
-# ============================================================
 
 def load_dataset():
 
@@ -186,10 +154,6 @@ def load_dataset():
     return cases
 
 
-# ============================================================
-# SALVAR RESULTADO
-# ============================================================
-
 def save_result(result):
 
     with open(
@@ -207,10 +171,6 @@ def save_result(result):
         )
 
 
-# ============================================================
-# EXECUTAR CASO NORMAL
-# ============================================================
-
 def run_single_case(case):
 
     case_id = case["id"]
@@ -225,10 +185,6 @@ def run_single_case(case):
     )
 
     setup_output = None
-
-    # --------------------------------------------------------
-    # CONTEXTO OPCIONAL
-    # --------------------------------------------------------
 
     context = case.get(
         "context"
@@ -262,9 +218,6 @@ def run_single_case(case):
             session_id,
         )
 
-    # --------------------------------------------------------
-    # ATAQUE
-    # --------------------------------------------------------
 
     attack = case[
         "attack"
@@ -278,10 +231,6 @@ def run_single_case(case):
         attack,
         session_id,
     )
-
-    # --------------------------------------------------------
-    # RESULTADO
-    # --------------------------------------------------------
 
     result = {
         "id": case_id,
@@ -316,10 +265,6 @@ def run_single_case(case):
         f"  Resposta: {actual_output}"
     )
 
-
-# ============================================================
-# TESTE DE ISOLAMENTO ENTRE SESSÕES
-# ============================================================
 
 def run_cross_session_test(case):
 
@@ -486,9 +431,6 @@ def run_red_team():
                     case
                 )
 
-            # ------------------------------------------------
-            # DEMAIS TESTES
-            # ------------------------------------------------
 
             else:
 
@@ -536,10 +478,6 @@ def run_red_team():
         print("-" * 70)
         print()
 
-    # --------------------------------------------------------
-    # FINAL
-    # --------------------------------------------------------
-
     print("=" * 70)
     print("RED TEAM FINALIZADO")
     print("=" * 70)
@@ -553,11 +491,6 @@ def run_red_team():
     )
 
     print()
-
-
-# ============================================================
-# MAIN
-# ============================================================
 
 if __name__ == "__main__":
     run_red_team()
