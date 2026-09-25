@@ -369,10 +369,7 @@ Isso permitiu transformar problemas observados no comportamento real do agente e
 
 O baseline executado apresentou:
 
-## 20 testes
-
-11 aprovados
-9 reprovados
+20 testes; 11 aprovados; 9 reprovados
 
 Pass Rate: 55,0%
 
@@ -380,7 +377,8 @@ Esse resultado foi utilizado como referência inicial.
 
 O objetivo do baseline não é representar a versão final do agente, mas identificar comportamentos que precisavam ser analisados e corrigidos.
 
-## 19. Red Teaming
+
+# 19. Red Teaming
 
 A campanha de red teaming foi estruturada como uma tentativa deliberada de quebrar as regras do agente.
 
@@ -392,17 +390,17 @@ e pelo menos quatro categorias de ataque.
 
 Foram trabalhadas categorias como:
 
-Prompt Injection;
-Tool Output Injection;
-Jailbreak;
-bypass das regras;
-vazamento do system prompt;
-vazamento de contexto;
-indução de alucinação;
-uso indevido das ferramentas;
-tentativa de obtenção de informações indevidas.
+- Prompt Injection;
+- Tool Output Injection;
+- Jailbreak;
+- bypass das regras;
+- vazamento do system prompt;
+- vazamento de contexto;
+- indução de alucinação;
+- uso indevido das ferramentas;
+- tentativa de obtenção de informações indevidas.
 
-## 20. Estrutura dos ataques
+# 20. Estrutura dos ataques
 
 Cada tentativa considera:
 
@@ -428,7 +426,7 @@ Ataque bem-sucedido
 
 e também identificar situações em que a resposta não foi uma falha completa, mas apresentou comportamento suspeito.
 
-## 21. Tabela consolidada de achados
+# 21. Tabela consolidada de achados
 ID	Vulnerabilidade	Severidade
 REC-01	Recomendação de jogo já possuído	Média
 RAG-01	Confusão entre Cities: Skylines e Cities: Skylines II	Média
@@ -438,11 +436,11 @@ PRICE-05	Associação Devotion → AppID incorreto	Alta
 TOOL-06	Inferência de disponibilidade pela biblioteca	Alta
 PERF-01	Chamadas desnecessárias/timeout	Média
 
-## 22. Análise dos problemas
+# 22. Análise dos problemas
 
 Os problemas encontrados podem ser agrupados em quatro áreas.
 
-### 22.1 Grounding
+## 22.1 Grounding
 
 O agente pode preencher lacunas com conhecimento gerado pelo modelo.
 
@@ -458,7 +456,7 @@ Resposta aparentemente factual
 
 O caso de AppID inventado é um exemplo desse comportamento.
 
-22.2 Identificação de entidades
+## 22.2 Identificação de entidades
 
 Jogos semelhantes podem ser confundidos.
 
@@ -470,7 +468,7 @@ Cities: Skylines II
 
 O nome e o identificador precisam ser associados corretamente.
 
-22.3 Interpretação das ferramentas
+## 22.3 Interpretação das ferramentas
 
 Uma ferramenta pode retornar dados corretos, mas o agente pode interpretar esses dados de forma incorreta.
 
@@ -480,11 +478,11 @@ getOwnedGames()
         ↓
 Jogo não encontrado
         ↓
-❌ "O jogo não está na Steam"
+"O jogo não está na Steam"
 
 A ferramenta apenas informou que o jogo não estava na biblioteca retornada.
 
-22.4 Eficiência
+## 22.4 Eficiência
 
 As ferramentas também precisam ser utilizadas de forma controlada.
 
@@ -494,8 +492,8 @@ aumentar latência;
 gerar timeout;
 consumir recursos;
 não acrescentar informação à resposta.
-23. Correções propostas
-23.1 Validação de jogos
+# 23. Correções propostas
+## 23.1 Validação de jogos
 
 Foi proposta uma ferramenta:
 
@@ -507,7 +505,7 @@ A regra é:
 
 O agente não deve inventar AppIDs. Quando um identificador for necessário, ele deve ser obtido ou validado por uma fonte apropriada.
 
-23.2 Separação entre biblioteca e catálogo
+## 23.2 Separação entre biblioteca e catálogo
 
 Foi reforçada a regra:
 
@@ -517,7 +515,7 @@ Catálogo da Steam
 
 Assim, o agente não pode concluir que um jogo não existe ou não está disponível apenas porque não aparece na biblioteca.
 
-23.3 Validação da entidade
+## 23.3 Validação da entidade
 
 Antes de utilizar:
 
@@ -527,13 +525,13 @@ o agente deve confirmar a correspondência.
 
 Isso reduz a possibilidade de associar dados de um jogo a outro.
 
-23.4 Controle das ferramentas
+## 23.4 Controle das ferramentas
 
 O agente deve utilizar uma ferramenta quando ela for realmente necessária para responder.
 
 Essa regra busca reduzir chamadas redundantes e problemas de timeout.
 
-24. Baseline × versão final
+# 24. Baseline × versão final
 
 O processo de evolução foi planejado da seguinte maneira:
 
