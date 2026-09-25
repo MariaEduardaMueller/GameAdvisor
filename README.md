@@ -955,6 +955,8 @@ Reteste das correções
 
 O processo permitiu transformar falhas observadas durante a exploração em regras, testes e correções reproduzíveis, estruturando o GameAdvisor como um projeto de avaliação contínua de agentes de IA.
 
+# Demo
+A Demo foi realizada no dia 25/09/26 durante a reunião do Teams. Foi realizada com o tempo de 6 minutos onde foi apresentada a estrutura do projeto (harness, lambda, knowledge base, gateway, etc) no console da AWS e o DeepEval e Red Team na máquina pessoal.
 
 # Entregáveis
 
