@@ -365,7 +365,45 @@ A sessão exploratória também serviu como fonte para criação de casos.
 
 Isso permitiu transformar problemas observados no comportamento real do agente em testes reproduzíveis.
 
-# 18. Avaliação com DeepEval
+# 18. Avaliações
+O GameAdvisor possui uma estratégia de avaliação em duas frentes, utilizando os recursos de avaliação do **Amazon Bedrock AgentCore** em conjunto com o **DeepEval**.
+
+A combinação permite avaliar o agente por diferentes perspectivas, incluindo comportamento, qualidade das respostas, uso de ferramentas e conformidade com as regras definidas para o domínio.
+
+## 18.1 Avaliação AgentCore Evaluations
+
+A avaliação no **AgentCore Evaluations** é utilizada para analisar o comportamento do agente dentro do ambiente Amazon Bedrock AgentCore.
+
+A estratégia contempla **quatro avaliadores**:
+
+* **Builtin.Faithfulness** — avalia a fidelidade da resposta em relação às informações disponíveis;
+* **Builtin.Coherence** — avalia a coerência e consistência da resposta;
+* **Builtin.ResponseRelevance** — avalia a relevância da resposta em relação à solicitação do usuário;
+* **GameAdvisorCompliance** — avaliador customizado desenvolvido para verificar a conformidade do agente com as regras específicas definidas para o GameAdvisor.
+
+A avaliação foi executada sobre **9 traces** do agente. Os resultados registrados foram:
+
+| Trace ID                           | Faithfulness | Coherence | GameAdvisorCompliance | Response Relevance |
+| ---------------------------------- | -----------: | --------: | --------------------: | -----------------: |
+| `6ab5cfa773ee72497da8634d712af9ae` |         1.00 |      1.00 |                  1.00 |               1.00 |
+| `6ab5cf806482d5ea02f28f2d29b86eff` |         0.75 |      0.00 |                  1.00 |               1.00 |
+| `6ab5cf97536bc7067ab8b6c606265b56` |         0.00 |      0.00 |            `svgError` |               1.00 |
+| `6ab5cf584eb9862577f36b881e235547` |         0.25 |      0.00 |            `svgError` |               0.75 |
+| `6ab5cf9f2f67f09465e81d964b730cf2` |         0.00 |      0.00 |            `svgError` |               0.25 |
+| `6ab5ce2248daf153043484a6419e0ab8` |         0.25 |      0.25 |                  1.00 |               0.75 |
+| `6ab5ce862fe5eef946235f5459f02fa7` |         0.00 |      1.00 |                  1.00 |               1.00 |
+| `6ab5ce695adc5d034f14cabd14e756c8` |         0.00 |      0.00 |                  0.00 |               0.25 |
+| `6ab5ce9e0d7fe22c54b3d2d83e322401` |         1.00 |      1.00 |                  1.00 |               1.00 |
+
+Os resultados apresentam variação entre as traces, permitindo identificar comportamentos distintos do agente em diferentes interações. Algumas traces apresentaram desempenho máximo nas quatro métricas, enquanto outras apresentaram valores reduzidos principalmente em **Faithfulness** e **Coherence**.
+
+O avaliador customizado **GameAdvisorCompliance** apresentou pontuação `1.00` em cinco das seis traces nas quais houve resultado numérico. Uma trace apresentou `0.00`, enquanto outras três apresentam `svgError` na interface, portanto esses casos não são tratados como pontuação zero sem uma investigação adicional.
+
+A avaliação também evidencia a importância de analisar as traces individualmente, relacionando as pontuações às entradas e respostas efetivamente produzidas pelo agente. Dessa forma, os resultados do AgentCore Evaluations são utilizados em conjunto com a análise exploratória, o red teaming e a avaliação realizada com **DeepEval**, permitindo identificar falhas de comportamento, inconsistências e oportunidades de melhoria no GameAdvisor.
+
+
+
+## 18.2 Avaliação com DeepEval
 
 O baseline executado apresentou:
 
