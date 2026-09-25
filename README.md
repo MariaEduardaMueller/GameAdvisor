@@ -71,6 +71,31 @@ Um princípio importante do projeto é:
 
 A integração com a Steam é realizada por funções AWS Lambda expostas ao agente por meio do AgentCore Gateway.
 
+## Configurações no console
+**Harness:** 
+
+
+<img width="1567" height="747" alt="harness_config" src="https://github.com/user-attachments/assets/7c045d2f-5761-4b55-983c-9a9426e222ea" /> 
+
+
+<img width="1567" height="751" alt="harness_config2" src="https://github.com/user-attachments/assets/9fe14d93-4560-4b53-bd76-3c5713feba91" />
+
+**Lambda:**
+
+<img width="1918" height="860" alt="lambda_config" src="https://github.com/user-attachments/assets/4a65d1f4-0ea6-455f-8f1a-21e501afb1bd" />
+
+**Gateway:**
+<img width="1552" height="742" alt="bedrockgateway_config" src="https://github.com/user-attachments/assets/7c72a346-9174-4e9a-af0e-9cab30997e13" />
+
+**Knowledge Base:**
+
+<img width="1543" height="707" alt="knowledgebase_config" src="https://github.com/user-attachments/assets/3a4283ec-156b-45f6-a7f8-b62977dbabe6" />
+
+<img width="1546" height="610" alt="knowledgebase_config_datasource" src="https://github.com/user-attachments/assets/f9a8da08-fa4d-4855-9005-1348673b947d" />
+
+<img width="1566" height="697" alt="knowledgebase_config_s3" src="https://github.com/user-attachments/assets/f5160297-322b-41e1-b0ce-739a0ec1a15b" />
+
+
 # Funcionalidades
 ## Integração com a Steam
 
