@@ -183,6 +183,25 @@ O projeto utiliza duas frentes de avaliação:
 
 O objetivo é avaliar tanto a qualidade das respostas quanto a conformidade do agente com as regras específicas do domínio.
 
+### Amazon Bedrock AgentCore Evaluations
+
+Customizado com as métricas:
+- Builtin.Faithfulness
+- Builtin.Coherence 
+- Builtin.ResponseRelevance 
+- GameAdvisorCompliance
+
+A avaliação foi executada sobre **9 traces** do agente. Os resultados registrados foram:
+
+| Trace ID                           | Faithfulness | Coherence | GameAdvisorCompliance | Response Relevance |
+| ---------------------------------- | -----------: | --------: | --------------------: | -----------------: |
+| `6ab5cfa773ee72497da8634d712af9ae` |         1.00 |      1.00 |                  1.00 |               1.00 |
+| `6ab5cf806482d5ea02f28f2d29b86eff` |         0.75 |      0.00 |                  1.00 |               1.00 |
+| `6ab5ce2248daf153043484a6419e0ab8` |         0.25 |      0.25 |                  1.00 |               0.75 |
+| `6ab5ce862fe5eef946235f5459f02fa7` |         0.00 |      1.00 |                  1.00 |               1.00 |
+| `6ab5ce695adc5d034f14cabd14e756c8` |         0.00 |      0.00 |                  0.00 |               0.25 |
+| `6ab5ce9e0d7fe22c54b3d2d83e322401` |         1.00 |      1.00 |                  1.00 |               1.00 |
+
 ### DeepEval
 
 As métricas definidas para o desafio são:
