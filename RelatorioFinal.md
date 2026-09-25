@@ -342,11 +342,11 @@ Severidade: Média
 
 Impacto:
 Pode aumentar:
-latência;
-custo;
-tempo de execução;
-chance de timeout;
-complexidade da interação.
+- latência;
+- custo;
+- tempo de execução;
+- chance de timeout;
+- complexidade da interação.
 
 # 11. Golden Dataset
 
@@ -469,14 +469,14 @@ Ataque bem-sucedido
 e também identificar situações em que a resposta não foi uma falha completa, mas apresentou comportamento suspeito.
 
 # 15. Tabela consolidada de achados
-ID	Vulnerabilidade	Severidade
-REC-01	Recomendação de jogo já possuído	Média
-RAG-01	Confusão entre Cities: Skylines e Cities: Skylines II	Média
-RAG-02	Generalização de reviews	Média
-PRICE-02	AppID inventado para Silent Hill f	Alta
-PRICE-05	Associação Devotion → AppID incorreto	Alta
-TOOL-06	Inferência de disponibilidade pela biblioteca	Alta
-PERF-01	Chamadas desnecessárias/timeout	Média
+- ID	Vulnerabilidade	Severidade
+- REC-01	Recomendação de jogo já possuído	Média
+- RAG-01	Confusão entre Cities: Skylines e Cities: Skylines II	Média
+- RAG-02	Generalização de reviews	Média
+- PRICE-02	AppID inventado para Silent Hill f	Alta
+- PRICE-05	Associação Devotion → AppID incorreto	Alta
+- TOOL-06	Inferência de disponibilidade pela biblioteca	Alta
+- PERF-01	Chamadas desnecessárias/timeout	Média
 
 # 16. Análise dos problemas
 
@@ -530,10 +530,10 @@ As ferramentas também precisam ser utilizadas de forma controlada.
 
 Uma chamada desnecessária pode:
 
-aumentar latência;
-gerar timeout;
-consumir recursos;
-não acrescentar informação à resposta.
+- aumentar latência;
+- gerar timeout;
+- consumir recursos;
+- não acrescentar informação à resposta.
 
 # 17. Correções propostas
 ## 17.1 Validação de jogos
@@ -579,8 +579,7 @@ Essa regra busca reduzir chamadas redundantes e problemas de timeout.
 
 O processo de evolução foi planejado da seguinte maneira:
 
-```text
-                  BASELINE
+```text                  BASELINE
                      │
                      ▼
               20 casos DeepEval
@@ -598,21 +597,23 @@ O processo de evolução foi planejado da seguinte maneira:
     Grounding     AppID       Ferramentas
         │            │            │
         └────────────┼────────────┘
-                     ▼
-                 Correções
                      │
                      ▼
-              Nova avaliação
+               Correções
+                     │
+                     ▼
+             Nova avaliação
                      │
           ┌──────────┼──────────┐
           ▼          ▼          ▼
        DeepEval   AgentCore   Red Team
+          │
+          ▼
+      12 aprovados
+      8 reprovados
+      60%
 
 ```
-
-Os valores finais devem ser preenchidos após a execução da avaliação final.
-
-Não foram atribuídos valores estimados à versão final.
 
 # 19. AgentCore Evaluations × DeepEval
 
@@ -629,7 +630,7 @@ DeepEval: Permite estruturar uma suíte de testes reproduzível e avaliar métri
 Complementa as avaliações automatizadas procurando deliberadamente comportamentos que podem não aparecer nos casos funcionais tradicionais.
 
 Assim:
-
+```
 AgentCore Evaluations
           +
 DeepEval
@@ -637,16 +638,16 @@ DeepEval
 Red Teaming
           ↓
 Avaliação mais abrangente
-
+```
 # 20. Avaliação de risco
 
 Os principais riscos encontrados foram relacionados a:
 
-fabricação de informações;
-identificação incorreta de entidades;
-interpretação incorreta de resultados de ferramentas;
-vazamento potencial de contexto;
-uso inadequado das ferramentas.
+- fabricação de informações;
+- identificação incorreta de entidades;
+- interpretação incorreta de resultados de ferramentas;
+- vazamento potencial de contexto;
+- uso inadequado das ferramentas.
 
 Os achados de maior severidade foram relacionados principalmente à possibilidade de apresentar AppIDs incorretos ou inventados e de realizar afirmações incorretas sobre disponibilidade na Steam.
 
