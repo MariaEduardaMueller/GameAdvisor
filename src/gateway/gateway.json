@@ -1,0 +1,151 @@
+[
+  {
+    "name": "get_user_top_games",
+    "description": "Consulta os jogos mais jogados do perfil Steam informado. Use quando o usuário perguntar sobre seus jogos mais jogados, biblioteca ou histórico de jogos.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "limit": {
+          "type": "integer",
+          "description": "Quantidade máxima de jogos a retornar."
+        },
+        "steam_input": {
+          "type": "string",
+          "description": "SteamID64, URL do perfil Steam ou nome personalizado do perfil."
+        }
+      },
+      "required": [
+        "steam_input"
+      ]
+    }
+  },
+  {
+    "name": "get_recently_played_games",
+    "description": "Consulta os jogos jogados recentemente pelo usuário na Steam, incluindo tempo jogado recentemente e tempo total.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "limit": {
+          "type": "integer",
+          "description": "Quantidade máxima de jogos recentes a retornar."
+        },
+        "steam_input": {
+          "type": "string",
+          "description": "SteamID64, URL do perfil Steam ou nome personalizado do perfil."
+        }
+      },
+      "required": [
+        "steam_input"
+      ]
+    }
+  },
+  {
+    "name": "get_wishlist",
+    "description": "Consulta a lista de desejos pública do usuário na Steam e retorna os jogos presentes nela.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "limit": {
+          "type": "integer",
+          "description": "Quantidade máxima de jogos da wishlist a retornar."
+        },
+        "steam_input": {
+          "type": "string",
+          "description": "SteamID64, URL do perfil Steam ou nome personalizado do perfil."
+        }
+      },
+      "required": [
+        "steam_input"
+      ]
+    }
+  },
+  {
+    "name": "getWishlistPrices",
+    "description": "Consulta os preços atuais dos jogos da wishlist do usuário na Steam em reais, identifica descontos e retorna os jogos ordenados do mais caro para o mais barato.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "limit": {
+          "type": "integer",
+          "description": "Quantidade máxima de jogos da wishlist para consultar preços."
+        },
+        "steam_input": {
+          "type": "string",
+          "description": "SteamID64, URL do perfil Steam ou nome personalizado do perfil."
+        }
+      },
+      "required": [
+        "steam_input"
+      ]
+    }
+  },
+  {
+    "name": "get_game_price",
+    "description": "Consulta o preço atual de um jogo específico da Steam usando seu AppID, incluindo preço original, preço atual e percentual de desconto.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "appid": {
+          "type": "integer",
+          "description": "AppID do jogo na Steam."
+        }
+      },
+      "required": [
+        "appid"
+      ]
+    }
+  },
+  {
+    "name": "retrieve_game_reviews",
+    "description": "Recupera avaliações de jogadores da GameAdvisor Knowledge Base para responder perguntas sobre opiniões, pontos positivos, pontos negativos, dificuldade, jogabilidade e outros aspectos dos jogos.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "query": {
+          "type": "string",
+          "description": "Pergunta ou consulta sobre avaliações de jogadores."
+        },
+        "number_of_results": {
+          "type": "integer",
+          "description": "Número de resultados da Knowledge Base a recuperar."
+        }
+      },
+      "required": [
+        "query"
+      ]
+    }
+  },
+  {
+    "name": "search_game_by_name",
+    "description": "Busca jogos na Steam pelo nome e retorna candidatos com seus AppIDs. Use esta ferramenta quando o usuário fornecer o nome de um jogo mas não fornecer um AppID.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "game_name": {
+          "type": "string",
+          "description": "Nome do jogo que deve ser pesquisado na Steam."
+        }
+      },
+      "required": [
+        "game_name"
+      ]
+    },
+    "outputSchema": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        },
+        "query": {
+          "type": "string"
+        },
+        "count": {
+          "type": "integer"
+        },
+        "results": {
+          "type": "array"
+        }
+      }
+    }
+  }
+]
