@@ -1,0 +1,1 @@
+Conjunto de imagens que mostram as configurações usadas nas ferramentas do console AWS.
