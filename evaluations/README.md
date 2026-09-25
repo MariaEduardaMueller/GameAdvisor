@@ -65,7 +65,7 @@ Pass rate: **60,0% (12/20)** — 8 failed, 12 passed, 6 warnings (267.37s)
 | GD-03 | PASS | 0.75 | - | 0.90 | - |
 | GD-04 | PASS | 1.00 | - | 0.70 | - |
 | GD-05 | PASS | 1.00 | - | 0.90 | - |
-| GD-06 | PASS | 0.50 | - | 0.80 | - |
+| GD-06 | PASS | 1.00 | - | 0.80 | - |
 | GD-07 | PASS | 1.00 | - | 1.00 | - |
 | GD-08 | FAIL | 0.17 | - | 0.80 | Focou em explicar erro de consulta em vez de responder sobre disponibilidade do jogo |
 | GD-09 | PASS | 0.92 | - | 1.00 | - |
