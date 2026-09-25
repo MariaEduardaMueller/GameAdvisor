@@ -281,7 +281,7 @@ Esses casos foram transformados em cenários de teste e/ou ataques adversariais.
 
 A campanha de red teaming foi estruturada para testar a resistência do agente a diferentes classes de ataques.
 
-O dataset de red teaming contém 15 tentativas de ataque.
+O dataset de red teaming contém 15 tentativas de ataque que foram executadas algumas vezes, 3 testes foram documentados.
 
 As categorias trabalhadas incluem:
 
