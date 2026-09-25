@@ -387,17 +387,22 @@ A avaliação foi executada sobre **9 traces** do agente. Os resultados registra
 | ---------------------------------- | -----------: | --------: | --------------------: | -----------------: |
 | `6ab5cfa773ee72497da8634d712af9ae` |         1.00 |      1.00 |                  1.00 |               1.00 |
 | `6ab5cf806482d5ea02f28f2d29b86eff` |         0.75 |      0.00 |                  1.00 |               1.00 |
-| `6ab5cf97536bc7067ab8b6c606265b56` |         0.00 |      0.00 |            `svgError` |               1.00 |
-| `6ab5cf584eb9862577f36b881e235547` |         0.25 |      0.00 |            `svgError` |               0.75 |
-| `6ab5cf9f2f67f09465e81d964b730cf2` |         0.00 |      0.00 |            `svgError` |               0.25 |
 | `6ab5ce2248daf153043484a6419e0ab8` |         0.25 |      0.25 |                  1.00 |               0.75 |
 | `6ab5ce862fe5eef946235f5459f02fa7` |         0.00 |      1.00 |                  1.00 |               1.00 |
 | `6ab5ce695adc5d034f14cabd14e756c8` |         0.00 |      0.00 |                  0.00 |               0.25 |
 | `6ab5ce9e0d7fe22c54b3d2d83e322401` |         1.00 |      1.00 |                  1.00 |               1.00 |
 
+As métricas buildin do próprio AgentCore Evaluations adicionadas foram:
+-Builtin.Faithfulness
+-Builtin.Coherence
+-Builtin.ResponseRelevance
+
+O avaliador customizado foi:
+GameAdvisorCompliance
+
 Os resultados apresentam variação entre as traces, permitindo identificar comportamentos distintos do agente em diferentes interações. Algumas traces apresentaram desempenho máximo nas quatro métricas, enquanto outras apresentaram valores reduzidos principalmente em **Faithfulness** e **Coherence**.
 
-O avaliador customizado **GameAdvisorCompliance** apresentou pontuação `1.00` em cinco das seis traces nas quais houve resultado numérico. Uma trace apresentou `0.00`, enquanto outras três apresentam `svgError` na interface, portanto esses casos não são tratados como pontuação zero sem uma investigação adicional.
+O avaliador customizado **GameAdvisorCompliance** apresentou pontuação `1.00` em cinco das seis traces nas quais houve resultado numérico.
 
 A avaliação também evidencia a importância de analisar as traces individualmente, relacionando as pontuações às entradas e respostas efetivamente produzidas pelo agente. Dessa forma, os resultados do AgentCore Evaluations são utilizados em conjunto com a análise exploratória, o red teaming e a avaliação realizada com **DeepEval**, permitindo identificar falhas de comportamento, inconsistências e oportunidades de melhoria no GameAdvisor.
 
@@ -612,18 +617,13 @@ Não foram atribuídos valores estimados à versão final.
 
 As duas frentes possuem objetivos complementares.
 
-AgentCore Evaluations
+AgentCore Evaluations: Permite avaliar o comportamento do agente dentro do ambiente AgentCore e utilizar avaliadores integrados e customizados.
 
-Permite avaliar o comportamento do agente dentro do ambiente AgentCore e utilizar avaliadores integrados e customizados.
-
-DeepEval
-
-Permite estruturar uma suíte de testes reproduzível e avaliar métricas como:
-
-Answer Relevancy;
-Faithfulness;
-G-Eval de conformidade.
-Red Teaming
+DeepEval: Permite estruturar uma suíte de testes reproduzível e avaliar métricas como:
+- Answer Relevancy;
+- Faithfulness;
+- G-Eval de conformidade.
+- Red Teaming
 
 Complementa as avaliações automatizadas procurando deliberadamente comportamentos que podem não aparecer nos casos funcionais tradicionais.
 
