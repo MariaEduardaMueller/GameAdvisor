@@ -394,6 +394,8 @@ FINAL
 55%
 
 No caso dos testes, 5 dos testes deveriam falhar, então os resultados foram bem positivos.
+<img width="1918" height="1017" alt="deepeval" src="https://github.com/user-attachments/assets/95e7b2db-4b1b-40ac-9c79-cb2b8a63ffa4" />
+
 
 ## Resultados
 
