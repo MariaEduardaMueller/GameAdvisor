@@ -80,6 +80,8 @@ A integração com a Steam é realizada por funções AWS Lambda expostas ao age
 
 <img width="1567" height="751" alt="harness_config2" src="https://github.com/user-attachments/assets/9fe14d93-4560-4b53-bd76-3c5713feba91" />
 
+Para consultar mais informações sobre o harness consulte: src/agent/ 
+
 **Lambda:**
 
 <img width="1918" height="860" alt="lambda_config" src="https://github.com/user-attachments/assets/4a65d1f4-0ea6-455f-8f1a-21e501afb1bd" />
