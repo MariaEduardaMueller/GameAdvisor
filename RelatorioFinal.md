@@ -380,7 +380,7 @@ A estratégia contempla **quatro avaliadores**:
 * **Builtin.ResponseRelevance** — avalia a relevância da resposta em relação à solicitação do usuário;
 * **GameAdvisorCompliance** — avaliador customizado desenvolvido para verificar a conformidade do agente com as regras específicas definidas para o GameAdvisor.
 
-A avaliação foi executada sobre **9 traces** do agente. Os resultados registrados foram:
+A avaliação foi executada sobre **6 traces** do agente. Os resultados registrados foram:
 
 | Trace ID                           | Faithfulness | Coherence | GameAdvisorCompliance | Response Relevance |
 | ---------------------------------- | -----------: | --------: | --------------------: | -----------------: |
