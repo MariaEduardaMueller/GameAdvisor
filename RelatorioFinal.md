@@ -132,11 +132,14 @@ STEAM_API_KEY
 
 As ferramentas disponíveis no Gateway durante o desenvolvimento foram:
 
-Ferramenta	Finalidade
-resolveSteamId	Resolver Steam ID a partir de identificador/URL
-getPlayerProfile	Consultar perfil público
-getOwnedGames	Consultar jogos pertencentes ao usuário
-getRecentlyPlayedGames	Consultar jogos jogados recentemente
+Ferramenta:	Finalidade
+- get_user_top_games: Consulta os jogos mais jogados da conta
+- get_recently_played_games: Consulta jogos jogados recentemente
+- get_wishlist: Consulta a wishlist pública
+- getWishlistPrices:	Consulta preços dos jogos da wishlist
+- get_game_price: Consulta preço de um jogo pelo AppID
+- retrieve_game_reviews: Consulta avaliações na Knowledge Base
+- search_game_by_name: Busca um jogo pelo nome e retorna candidatos/AppIDs
 
 As ferramentas são de leitura.
 
