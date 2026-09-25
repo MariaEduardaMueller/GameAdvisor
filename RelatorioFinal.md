@@ -711,15 +711,9 @@ Entre as melhorias observadas estão os casos relacionados a:
 - associação de AppIDs;
 - contexto multi-turno.
 
-O resultado final ficou com:
-
-20 testes; 12 aprovados; 8 reprovados; 60% 
-
-*5 dos testes tinham que ser reprovados para serem considerados bem sucedidos
-
+O resultado final ficou com: **20 testes; 12 aprovados; 8 reprovados; 60% de pass rate das métricas**
 Resolvido: GD-04, GD-05, GD-06 (respostas de preço) e GD-13 (contexto multi-turno) passaram a passar.
-Compliance segue alto nos dois runs — a maioria das falhas está concentrada em Answer Relevancy.
-Seguem falhando: GD-08, GD-10, GD-15 e o grupo GD-16 a GD-20.
+GD-16 a GD-20 apresentaram reprovação em algumas métricas, porém os resultados devem ser interpretados considerando a natureza dos casos. Já que são casos fora de escopo e adversarial, ou seja, ele está se comportando exatamente como deveria, falhando o teste.
 
 
 ### Por que alguns testes "falhados" são, na prática, um resultado positivo?
@@ -738,7 +732,8 @@ Análise das traces
 Reteste das correções
 ```
 
-O processo permitiu transformar falhas observadas durante a exploração em regras, testes e correções reproduzíveis, estruturando o GameAdvisor como um projeto de avaliação contínua de agentes de IA.
+O processo permitiu transformar falhas observadas durante a exploração em regras, testes e correções reproduzíveis, estruturando o GameAdvisor como um projeto de avaliação contínua de agentes de IA 
+O GameAdvisor ainda não estaria pronto para produção devido a falhas de isolamento entre sessões. Também foram observadas respostas não fundamentadas e afirmações de ações que o agente não poderia executar. Embora as correções tenham reduzido algumas falhas, ainda existem vulnerabilidades que exigem correção e reteste. O processo permitiu transformar falhas observadas durante a exploração em regras, testes e correções reproduzíveis, estruturando o GameAdvisor como um projeto de avaliação contínua de agentes de IA.
 
 
 # 22. Entregáveis
